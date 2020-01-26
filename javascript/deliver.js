@@ -1,14 +1,18 @@
 class Deliver {
 
-    constructor(gameWidth, gameHeight) {
-
+    constructor(ctx, gameWidth, gameHeight) {
+        this.ctx = ctx
         this.width = 30;
         this.height = 30;
+        this.playerVel = 0.5;
+
 
         this.position = {
 
-            x: gameWidth * Math.random(),
-            y: gameHeight * Math.random()
+
+
+            x: Math.random() * (gameWidth - 0) + 0,
+            y: Math.random() * (gameHeight - 0) + 0,
         }
     }
 
@@ -21,6 +25,8 @@ class Deliver {
     }
 
     moveRight() {
+
+        this.position.x += this.playerVel;
 
     }
 

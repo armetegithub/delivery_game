@@ -1,9 +1,10 @@
 class Destiny extends Deliver {
 
-    constructor(gameWidth, gameHeight) {
+    constructor(ctx, gameWidth, gameHeight) {
 
         super(gameWidth, gameHeight);
 
+        this.ctx = ctx;
         this.width = 30;
         this.height = 30;
 

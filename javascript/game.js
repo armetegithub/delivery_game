@@ -29,46 +29,80 @@ const game = {
         this.height = window.innerHeight * 0.98;
         this.canvas.width = this.width;
         this.canvas.height = this.height;
-        this.setDimensions();
-        this.drawAll();
-        // this.start(); //Esto haría que apareciesen cuadrados cada x segundos
+
+        // this.setDimensions();
+        this.start()
+        // this.drawStatics();
+
+        // ; //Esto haría que apareciesen cuadrados cada x segundos
 
 
     },
+
 
     start() {
 
+        this.reset();
+
+
+
         this.interval = setInterval(() => {
 
-            this.drawAll();
+            this.clear();
+            this.drawStatics();
+            this.moveDeliver();
 
 
-        }, 3000);
+
+
+        }, 1000 / 60);
     },
 
 
-    drawAll() {
+    // drawAll() {
 
 
-        this.draw();
+    //     this.draw();
 
+
+
+    // },
+
+    reset() {
+
+        this.deliver = new Deliver(this.ctx, this.width, this.height);
+        this.destiny = new Destiny(this.ctx, this.width, this.height);
+        this.packet = new Packet(this.ctx, this.width, this.height);
 
 
     },
 
-    draw() {
+    drawStatics() {
 
-        let deliver = new Deliver(this.width, this.height);
-        deliver.draw(this.ctx);
 
-        let destiny = new Destiny(this.width, this.height);
-        destiny.draw(this.ctx);
 
-        let packet = new Packet(this.width, this.height);
-        packet.draw(this.ctx);
+        this.deliver.draw(this.ctx);
+        this.destiny.draw(this.ctx);
+        this.packet.draw(this.ctx);
+
+
+        // this.deliver = new Deliver(this.ctx, this.width, this.height);
+        // deliver.draw(this.ctx);
+
+        // this.destiny = new Destiny(this.ctx, this.width, this.height);
+
+
+        // this.packet = new Packet(this.ctx, this.width, this.height);
+
 
     },
 
+    moveDeliver() {
+
+        this.deliver.moveRight();
+
+
+    },
 
     setDimensions() {
 
@@ -79,15 +113,12 @@ const game = {
         this.canvas.setAttribute("width", `${this.width}px`);
         this.canvas.setAttribute("height", `${this.height}px`);
 
-
-
     },
+
 
 
     clear() {
         this.ctx.clearRect(0, 0, this.width, this.height);
     },
-
-
 
 }
