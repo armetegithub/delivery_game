@@ -19,4 +19,20 @@ class Deliver {
 
 
     }
+
+    moveRight() {
+
+    }
+
+    moveLeft() {
+
+    }
+
+    moveUp() {
+
+    }
+
+    moveDown() {
+
+    }
 }

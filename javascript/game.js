@@ -31,10 +31,7 @@ const game = {
         this.canvas.height = this.height;
         this.setDimensions();
         this.drawAll();
-
-
-
-
+        // this.start(); //Esto haría que apareciesen cuadrados cada x segundos
 
 
     },
@@ -46,7 +43,7 @@ const game = {
             this.drawAll();
 
 
-        }, 1000 / 60);
+        }, 3000);
     },
 
 
@@ -64,6 +61,11 @@ const game = {
         let deliver = new Deliver(this.width, this.height);
         deliver.draw(this.ctx);
 
+        let destiny = new Destiny(this.width, this.height);
+        destiny.draw(this.ctx);
+
+        let packet = new Packet(this.width, this.height);
+        packet.draw(this.ctx);
 
     },
 
