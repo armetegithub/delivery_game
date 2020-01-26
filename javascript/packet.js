@@ -21,5 +21,6 @@ class Packet extends Deliver {
         ctx.fillRect(this.position.x, this.position.y, this.height, this.width);
 
 
+
     }
 }

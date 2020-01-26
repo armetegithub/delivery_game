@@ -2,4 +2,7 @@ window.onload = () => {
     game.init();
 
 
+
+
+
 };

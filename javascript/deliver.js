@@ -11,8 +11,8 @@ class Deliver {
 
 
 
-            x: Math.random() * (gameWidth - 0) + 0,
-            y: Math.random() * (gameHeight - 0) + 0,
+            x: Math.random() * (gameWidth - 60) + 60,
+            y: Math.random() * (gameHeight - 60) + 60,
         }
     }
 
@@ -20,25 +20,46 @@ class Deliver {
 
         ctx.fillStyle = '#321';
         ctx.fillRect(this.position.x, this.position.y, this.height, this.width);
+        if (this.position.x > this.gameWidth) {
+            this.position.x = this.gameWidth - 60;
+        }
+        if (this.position.y > this.gameHeight) {
+            this.position.y = this.gameHeight + 60;
+        }
 
 
     }
 
-    moveRight() {
 
-        this.position.x += this.playerVel;
+    moveDelivery() {
+        window.onkeydown = e => {
+
+            switch (e.keyCode) {
+                case 37:
+                    console.log('izquierda');
+                    this.position.x -= 30;
+
+
+                    // left key pressed
+                    break;
+                case 38:
+                    this.position.y -= 30;
+
+                    // up key pressed
+                    break;
+                case 39:
+                    this.position.x += 30;
+                    // right key pressed
+                    break;
+                case 40:
+                    this.position.y += 30;
+                    // down key pressed
+                    break;
+            }
+        }
 
     }
 
-    moveLeft() {
 
-    }
 
-    moveUp() {
-
-    }
-
-    moveDown() {
-
-    }
 }
